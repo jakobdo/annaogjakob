@@ -1,0 +1,6 @@
+Django
+django-lockdown
+Pillow
+djangorestframework
+sorl-thumbnail
+ipython

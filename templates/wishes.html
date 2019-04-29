@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="header special-header">Ønskelisten</h1>
+
+        <div class="row">
+            <div class="col s12 m8">Navn</div>
+            <div class="col s12 m2">Kommentarer</div>
+            <div class="col s12 m2">Link</div>
+        </div>
+        <div id="wishes">
+            {% for wish in wishes %}
+                <div class="row hoverable">
+                    <div class="col s12 m8">{{ wish.name }}</div>
+                    <div class="col s12 m2">
+                        <a href="{{ wish.get_comments }}" class="comment">
+                            <i class="material-icons left">message</i> {{ wish.comments.count }}
+                        </a>
+                    </div>
+                    <div class="col s12 m2">
+                        <a href="{{ wish.link }}" target="external_link">
+                            <i class="material-icons left">link</i>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Kommentarer</h4>
+      <p id="comments">Loading...</p>
+    </div>
+    <div class="modal-footer">
+      <a class="modal-close waves-effect waves-green btn-flat">Luk</a>
+    </div>
+  </div>
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript" src="{% static "js/wishes.js" %}"></script>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Venligst login{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="header special-header">Kom indenfor</h1>
+    <div class="row">
+        <form class="col s12" autocomplete="off" method="post">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="id_password" name="password" type="password" class="validate">
+                    <label for="id_password">Kodeord</label>
+                </div>
+            </div>
+            <button class="btn waves-effect waves-light" type="submit" name="action">Log ind
+                <i class="material-icons right">lock_open</i>
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}
