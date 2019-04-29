@@ -29,7 +29,7 @@
 {% for comment in comments %}
     <div class="card-panel teal">
         <div class="card-content white-text">
-          <span class="card-title">{{ comment.name }} - {{ comment.created }}</span>
+          <span class="card-title">{{ comment.name }} - {{ comment.created|date:"Y-m-d H:i:s" }}</span>
           <p>{{ comment.comment }}</p>
         </div>
     </div>

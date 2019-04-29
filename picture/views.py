@@ -11,7 +11,7 @@ class PicturesView(View):
     template_name = 'pictures.html'
 
     def get(self, request, *args, **kwargs):
-        picture_listing = Picture.objects.all()
+        picture_listing = Picture.objects.all().order_by("-created")
         paginator = Paginator(picture_listing, 10)
         page = request.GET.get('page')
         pictures = paginator.get_page(page)
