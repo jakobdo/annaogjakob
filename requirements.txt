@@ -4,3 +4,4 @@ Pillow
 djangorestframework
 sorl-thumbnail
 ipython
+psycopg2 --no-binary psycopg2
