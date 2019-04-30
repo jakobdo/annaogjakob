@@ -12,7 +12,7 @@ class WishesView(View):
     template_name = 'wishes.html'
 
     def get(self, request, *args, **kwargs):
-        wishes = Wish.objects.all()
+        wishes = Wish.objects.all().order_by("name")
         return render(request, self.template_name, {'wishes': wishes})
 
 
