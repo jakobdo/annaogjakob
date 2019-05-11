@@ -14,6 +14,8 @@
             {% endfor %}
         {% endif %}
 
+        <p class="caption">Har I musikønsker til den store dag, kan I sende dem her, så vil vores DJ (vores musikanlæg) sørge for de bliver spillet på dagen.</p>
+
         <form method="post">{% csrf_token %}
             <div class="row">
                 <div class="input-field col s12">
@@ -27,8 +29,8 @@
                     <label for="id_song">Sang</label>
                 </div>
             </div>
-            <button class="btn waves-effect waves-light" type="submit" name="action">Ønsk
-                <i class="material-icons right">send</i>
+            <button class="btn waves-effect waves-light orange" type="submit" name="action">Ønsk
+                <i class="material-icons right">add</i>
             </button>
         </form>
 

@@ -6,6 +6,8 @@
     <ul class="container">
         <h1 class="header special-header">Billeder</h1>
 
+        <p class="caption">Her på siden er det tænkt at I kan uploade billeder fra dagen. I er allerede velkomne til at uploade billede nu, hvis I skulle have lyst. Klik på boksen "BILLEDE", vælg billede og tryk på knappen "SEND".</p>
+
         {% if messages %}
             {% for message in messages %}
                 <div class="card-panel">
@@ -16,7 +18,7 @@
 
         <form method="post" enctype="multipart/form-data">{% csrf_token %}
             <div class="file-field input-field">
-                <div class="btn">
+                <div class="btn blue-grey darken-1">
                     <span>Billede</span>
                     <input type="file" name="picture">
                 </div>
@@ -24,8 +26,8 @@
                     <input class="file-path validate" type="text">
                 </div>
             </div>
-            <button class="btn waves-effect waves-light" type="submit" name="action">Send
-                <i class="material-icons right">send</i>
+            <button class="btn waves-effect waves-light orange" type="submit" name="action">Send
+                <i class="material-icons right">add</i>
             </button>
         </form>
 

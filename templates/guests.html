@@ -13,6 +13,8 @@
             {% endfor %}
         {% endif %}
 
+        <p class="caption">Her kan I gæster skrive sammen internt, uden at vi kigger med.</p>
+
         <div class="row">
             <form class="col s12" method="post" autocomplete="off">{% csrf_token %}
                 <div class="row">
@@ -27,21 +29,21 @@
                         <label for="id_comment">Kommentar</label>
                     </div>
                 </div>
-                <button class="btn waves-effect waves-light" type="submit" name="action">Tilføj kommentar
+                <button class="btn waves-effect waves-light orange" type="submit" name="action">Tilføj kommentar
                     <i class="material-icons right">add</i>
                 </button>
             </form>
         </div>
 
         {% for comment in comments %}
-            <div class="card-panel teal">
+            <div class="card-panel blue-grey darken-1">
                 <div class="card-content white-text">
                   <span class="card-title">{{ comment.name }} - {{ comment.created|date:"Y-m-d H:i:s" }}</span>
                   <p>{{ comment.comment }}</p>
                 </div>
             </div>
         {% empty %}
-            <div class="card-panel teal">
+            <div class="card-panel blue-grey darken-1">
                 <div class="card-content white-text">
                   <p>Ingen kommentarer</p>
                 </div>
