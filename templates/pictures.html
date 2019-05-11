@@ -33,21 +33,23 @@
 
         <br>
 
-        <ul class="pagination">
-            {% if pictures.has_previous %}
-                <li class="waves-effect"><a href="?page={{ pictures.previous_page_number }}"><i class="material-icons">chevron_left</i></a></li>
-            {% else %}
-                <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-            {% endif %}
+        {% if pictures %}
+            <ul class="pagination">
+                {% if pictures.has_previous %}
+                    <li class="waves-effect"><a href="?page={{ pictures.previous_page_number }}"><i class="material-icons">chevron_left</i></a></li>
+                {% else %}
+                    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                {% endif %}
 
-            <li class="active"><a href="?page={{ pictures.number }}">{{ pictures.number }}</a></li>
+                <li class="active"><a href="?page={{ pictures.number }}">{{ pictures.number }}</a></li>
 
-            {% if pictures.has_next %}
-                <li class="waves-effect"><a href="?page={{ pictures.next_page_number }}"><i class="material-icons">chevron_right</i></a></li>
-            {% else %}
-                <li class="disabled"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-            {% endif %}
-        </ul>
+                {% if pictures.has_next %}
+                    <li class="waves-effect"><a href="?page={{ pictures.next_page_number }}"><i class="material-icons">chevron_right</i></a></li>
+                {% else %}
+                    <li class="disabled"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+                {% endif %}
+            </ul>
+        {% endif %}
 
         {% for picture in pictures %}
             {% thumbnail picture.picture "800" as big %}
@@ -57,21 +59,23 @@
             {% endthumbnail %}
         {% endfor %}
 
-        <ul class="pagination">
-            {% if pictures.has_previous %}
-                <li class="waves-effect"><a href="?page={{ pictures.previous_page_number }}"><i class="material-icons">chevron_left</i></a></li>
-            {% else %}
-                <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-            {% endif %}
+        {% if pictures %}
+            <ul class="pagination">
+                {% if pictures.has_previous %}
+                    <li class="waves-effect"><a href="?page={{ pictures.previous_page_number }}"><i class="material-icons">chevron_left</i></a></li>
+                {% else %}
+                    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                {% endif %}
 
-            <li class="active"><a href="?page={{ pictures.number }}">{{ pictures.number }}</a></li>
+                <li class="active"><a href="?page={{ pictures.number }}">{{ pictures.number }}</a></li>
 
-            {% if pictures.has_next %}
-                <li class="waves-effect"><a href="?page={{ pictures.next_page_number }}"><i class="material-icons">chevron_right</i></a></li>
-            {% else %}
-                <li class="disabled"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-            {% endif %}
-        </ul>
+                {% if pictures.has_next %}
+                    <li class="waves-effect"><a href="?page={{ pictures.next_page_number }}"><i class="material-icons">chevron_right</i></a></li>
+                {% else %}
+                    <li class="disabled"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+                {% endif %}
+            </ul>
+        {% endif %}
     </div>
 {% endblock %}
 
