@@ -36,9 +36,11 @@
 
         <br>
 
-        {% for song in music %}
-            {{ song.artist }} - {{ song.song }}
-        {% endfor %}
+        <ul class="collection">
+            {% for song in music %}
+                <li class="collection-item">{{ song.artist }} - {{ song.song }}</li>
+            {% endfor %}
+        </ul>
 
     </div>
 {% endblock %}
