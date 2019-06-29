@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load thumbnail %}
+
+{% block content %}
+    <ul class="container">
+        <h1 class="header special-header">Kamera Upload</h1>
+
+        <p class="caption">Kamera upload side!</p>
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="card-panel">
+                    <span class="blue-text text-darken-2">{{ message }}</span>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <form method="post" enctype="multipart/form-data">{% csrf_token %}
+            <div class="file-field input-field">
+                <div class="btn blue-grey darken-1">
+                    <span>Billede</span>
+                    <input type="file" accept="image/*" capture name="picture">
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                </div>
+            </div>
+            <button class="btn waves-effect waves-light orange" type="submit" name="action">Send
+                <i class="material-icons right">add</i>
+            </button>
+        </form>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript" src="{% static "js/pictures.js" %}"></script>
+{% endblock %}

@@ -25,3 +25,23 @@ class PicturesView(View):
         else:
             messages.add_message(request, messages.ERROR, 'Bilede IKKE gemt.')
         return redirect('pictures')
+
+
+class CameraView(View):
+    template_name = 'camera.html'
+
+    def get(self, request, *args, **kwargs):
+        picture_listing = Picture.objects.all().order_by("-created")
+        paginator = Paginator(picture_listing, 10)
+        page = request.GET.get('page')
+        pictures = paginator.get_page(page)
+        return render(request, self.template_name, {'pictures': pictures})
+
+    def post(self, request, *args, **kwargs):
+        form = PictureForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.INFO, 'Bilede gemt.')
+        else:
+            messages.add_message(request, messages.ERROR, 'Bilede IKKE gemt.')
+        return redirect('pictures')
